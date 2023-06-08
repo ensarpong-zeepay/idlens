@@ -12,7 +12,7 @@ describe('Idle', () => {
   it('should call do method when not interactive', done => {
     let called = false;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => (called = true))
@@ -27,7 +27,7 @@ describe('Idle', () => {
   it('should call do method when not interactive, with more timeout', done => {
     let called = false;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(2, testFactor)
       .do(() => (called = true))
@@ -42,7 +42,7 @@ describe('Idle', () => {
   it('should keep calling do method after interactive', done => {
     let callCount = 0;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => callCount++)
@@ -61,7 +61,7 @@ describe('Idle', () => {
   it('should not call do method when not interactive for short time', done => {
     let called = false;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => (called = true))
@@ -76,7 +76,7 @@ describe('Idle', () => {
   it('should not call do method when interactive: document.click', done => {
     let called = false;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => (called = true))
@@ -97,7 +97,7 @@ describe('Idle', () => {
 
     const button = document.createElement('button') as HTMLButtonElement;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNot({
         events: ['click'],
         target: button,
@@ -122,7 +122,7 @@ describe('Idle', () => {
     const button = document.createElement('button') as HTMLButtonElement;
     const input = document.createElement('input') as HTMLInputElement;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNot([
         {
           events: ['click', 'hover'],
@@ -151,7 +151,7 @@ describe('Idle', () => {
   it('should not call do method when stopped', done => {
     let called = false;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => (called = true))
@@ -170,7 +170,7 @@ describe('Idle', () => {
   it('should not call do method when restarted', done => {
     let called = false;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => (called = true))
@@ -189,7 +189,7 @@ describe('Idle', () => {
   it('should repeat calling do method foreach timeout amount, if repeatitive', done => {
     let callCount = 0;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => callCount++)
@@ -205,7 +205,7 @@ describe('Idle', () => {
   it('should not repeat calling do method foreach timeout amount, if not repeatitive', done => {
     let callCount = 0;
 
-    idle = new Idle()
+    idle = new Idle(document)
       .whenNotInteractive()
       .within(1, testFactor)
       .do(() => callCount++)
