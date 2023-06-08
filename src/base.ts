@@ -3,13 +3,28 @@ export interface Interaction {
   events: string[];
 }
 
-const DEFAULT_DOCUMENT_EVENTS = [
-  'click',
-  'mousemove',
-  'mouseenter',
-  'keydown',
+const USER_INTERACTION_EVENTS = [
+  'tap',
+  'doubleTap',
+  'longPress',
+  'pan',
+  'pinch',
+  'rotate',
+  'swipe',
+  'touch',
   'scroll',
-  'touchstart',
+  'scrollStarted',
+  'scrollEnded',
+  'scrollToTop',
+  'scrollToBottom',
+  'scrollToHorizontalOffset',
+  'scrollToVerticalOffset',
+  'focus',
+  'blur',
+  'textChange',
+  'returnPress',
+  'checkedChange',
+  'selectedIndexChange',
 ];
 
 export abstract class Base {
@@ -22,6 +37,12 @@ export abstract class Base {
   private factor: number;
 
   private activeIntervalId: number;
+
+  protected root;
+
+  constructor(root) {
+    this.root = root;
+  }
 
   /**
    * Sets time after which it's idle if no interaction occurs.
@@ -73,8 +94,8 @@ export abstract class Base {
 
   protected pushDefaultInteractions(): void {
     this.interactions.push({
-      events: DEFAULT_DOCUMENT_EVENTS,
-      target: document,
+      events: USER_INTERACTION_EVENTS,
+      target: this.root,
     });
   }
 
