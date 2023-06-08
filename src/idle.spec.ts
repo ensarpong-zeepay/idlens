@@ -1,3 +1,4 @@
+import { expect } from 'chai';
 import { Idle } from './idle';
 
 const testFactor = 1000;
@@ -19,7 +20,7 @@ describe('Idle', () => {
       .start();
 
     setTimeout(() => {
-      expect(called).toBe(true);
+      expect(called).to.equal(true);
       done();
     }, 1.1 * testFactor);
   });
@@ -34,7 +35,7 @@ describe('Idle', () => {
       .start();
 
     setTimeout(() => {
-      expect(called).toBe(true);
+      expect(called).to.equal(true);
       done();
     }, 2.1 * testFactor);
   });
@@ -53,7 +54,7 @@ describe('Idle', () => {
     }, 1.2 * testFactor);
 
     setTimeout(() => {
-      expect(callCount).toBe(2);
+      expect(callCount).to.equal(2);
       done();
     }, 2.5 * testFactor);
   });
@@ -68,7 +69,7 @@ describe('Idle', () => {
       .start();
 
     setTimeout(() => {
-      expect(called).toBe(false);
+      expect(called).to.equal(false);
       done();
     }, 0.9 * testFactor);
   });
@@ -87,7 +88,7 @@ describe('Idle', () => {
     }, 0.5 * testFactor);
 
     setTimeout(() => {
-      expect(called).toBe(false);
+      expect(called).to.equal(false);
       done();
     }, 1.1 * testFactor);
   });
@@ -111,7 +112,7 @@ describe('Idle', () => {
     }, 0.5 * testFactor);
 
     setTimeout(() => {
-      expect(called).toBe(false);
+      expect(called).to.equal(false);
       done();
     }, 1.1 * testFactor);
   });
@@ -143,7 +144,7 @@ describe('Idle', () => {
     }, 0.5 * testFactor);
 
     setTimeout(() => {
-      expect(called).toBe(false);
+      expect(called).to.equal(false);
       done();
     }, 1.1 * testFactor);
   });
@@ -162,7 +163,7 @@ describe('Idle', () => {
     }, 0.5 * testFactor);
 
     setTimeout(() => {
-      expect(called).toBe(false);
+      expect(called).to.equal(false);
       done();
     }, 1.1 * testFactor);
   });
@@ -181,7 +182,7 @@ describe('Idle', () => {
     }, 0.5 * testFactor);
 
     setTimeout(() => {
-      expect(called).toBe(false);
+      expect(called).to.equal(false);
       done();
     }, 1.1 * testFactor);
   });
@@ -197,7 +198,7 @@ describe('Idle', () => {
       .start();
 
     setTimeout(() => {
-      expect(callCount).toBe(2);
+      expect(callCount).to.equal(2);
       done();
     }, 2.1 * testFactor);
   });
@@ -212,7 +213,7 @@ describe('Idle', () => {
       .start();
 
     setTimeout(() => {
-      expect(callCount).toBe(1);
+      expect(callCount).to.equal(1);
       done();
     }, 2.1 * testFactor);
   });
