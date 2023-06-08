@@ -3,11 +3,6 @@
 ## Intro
 
 Execute a function only when the user has interacted with the app in any of the below mentioned ways.
-It's simple, configurable, typescript friendly and has an easy chainable API.
-
-### Events
-
-Supported NativeScript events:
 
 "tap",
 "doubleTap",
@@ -31,7 +26,15 @@ Supported NativeScript events:
 "checkedChange",
 "selectedIndexChange"
 
-#### Usage
+It's simple, configurable, typescript friendly and has an easy chainable API.
+
+## Install
+
+```bash
+npm install https://github.com/ensarpong-zeepay/idlens
+```
+
+## Usage
 
 ```typescript
 import { Application } from '@nativescript/core';
